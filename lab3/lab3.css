@@ -1,0 +1,66 @@
+/*Common styles*/
+
+.container {
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+header, footer, .img1, .img2, .text, h3 {
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #74D7F3;
+}
+
+.img1 {
+    height: 400px;
+    line-height: 400px;
+    background-color: #94F8B3;
+}
+
+.img2 {
+    height: 400px;
+    line-height: 400px;
+    background-color: #F7F894;
+}
+
+.text {
+    height: 400px;
+    line-height: 400px;
+    background-color: #F094F8;
+}
+
+footer {
+    width: 100%;
+    background-color: #F8E2B0;
+    height: 50px;
+    line-height: 50px;
+}
+
+/*First task styles*/
+
+.first_task .img1, .first_task .img2, .first_task .text {
+    width: 33.3%;
+    float: left;
+}
+
+.first_task footer {
+    clear: both;
+}
+
+/*Second task styles*/
+
+.second_task {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.second_task .img1, .second_task .img2, .second_task .text {
+    flex-basis: 33.3%;
+}
+
