@@ -1,7 +1,7 @@
-import { surveyConfig } from '@/config/surveyConfig';
-import { SURVEY_PATH } from '@/utils/consts';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { surveyConfig } from '@/config/surveyConfig';
+import { SURVEY_PATH } from '@/utils/consts';
 
 export default function Home() {
   const router = useRouter();

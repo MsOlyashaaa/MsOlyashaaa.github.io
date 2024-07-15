@@ -5,12 +5,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   specific?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ specific, children, ...props }) => {
-  return (
+const Button: FC<ButtonProps> = ({ specific, children, ...props }) => (
     <button className={`${styles.button} ${specific ? styles.button_specific : ''}`} {...props}>
       {children}
     </button>
   );
-};
 
 export default Button;

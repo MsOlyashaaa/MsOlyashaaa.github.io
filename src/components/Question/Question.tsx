@@ -1,3 +1,7 @@
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ChevronIcon } from '@/assets/ChevronIcon';
 import logo_black from '@/assets/logo_black.svg';
 import logo_white from '@/assets/logo_white.svg';
@@ -11,10 +15,6 @@ import { SURVEY_PATH, SURVEY_RESULTS } from '@/utils/consts';
 import { getNextQuestionId } from '@/utils/getNextQuestionId';
 import { getQuestionFieldOrId } from '@/utils/getQuestionFieldOrId';
 import { replacePlaceholders } from '@/utils/replacePlaceholders';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import styles from './Question.module.css';
 
 interface QuestionProps {

@@ -1,6 +1,4 @@
 import { Question } from '@/types/Question';
 
-export const getQuestionFieldOrId = (question: Question): string => {
-  return question.field ?? question.id;
-};
+export const getQuestionFieldOrId = (question: Question): string => question.field ?? question.id;
 

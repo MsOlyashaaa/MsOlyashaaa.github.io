@@ -1,6 +1,6 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Question } from '@/types/Question';
 import { getQuestionFieldOrId } from '@/utils/getQuestionFieldOrId';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface SurveyState {
   answers: Record<string, string>;

@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '@/components/Button';
 import { surveyConfig } from '@/config/surveyConfig';
 import { clearAllAnswers } from '@/redux/slices/surveySlice';
@@ -5,8 +7,6 @@ import { RootState } from '@/redux/store';
 import { SURVEY_PATH } from '@/utils/consts';
 import { findQuestion } from '@/utils/getQuestionByIdOrFiled';
 import { replacePlaceholders } from '@/utils/replacePlaceholders';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
 import styles from './Results.module.css';
 
 const ResultsPageContent = () => {
