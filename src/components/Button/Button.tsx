@@ -1,14 +1,14 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import styles from './Button.module.css';
+import { StyledButton } from '@/components/Button/styles';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   specific?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({ specific, children, ...props }) => (
-    <button className={`${styles.button} ${specific ? styles.button_specific : ''}`} {...props}>
-      {children}
-    </button>
-  );
+  <StyledButton specific={specific} {...props}>
+    {children}
+  </StyledButton>
+);
 
 export default Button;

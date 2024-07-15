@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '@/components/Button';
 import { surveyConfig } from '@/config/surveyConfig';
+import { QuestionAnswers, ResultPage, StyledButton, Title } from '@/content/resultsPage/styles';
 import { clearAllAnswers } from '@/redux/slices/surveySlice';
 import { RootState } from '@/redux/store';
 import { SURVEY_PATH } from '@/utils/consts';
 import { findQuestion } from '@/utils/getQuestionByIdOrFiled';
 import { replacePlaceholders } from '@/utils/replacePlaceholders';
-import styles from './Results.module.css';
 
 const ResultsPageContent = () => {
   const dispatch = useDispatch();
@@ -22,9 +21,9 @@ const ResultsPageContent = () => {
   };
 
   return (
-    <div className={styles.result_page}>
-      <h1 className={styles.title}>Results</h1>
-      <ul className={styles.question_answers}>
+    <ResultPage>
+      <Title>Results</Title>
+      <QuestionAnswers>
         {Object.keys(surveyAnswers).map((key) => {
           const question = findQuestion(key);
 
@@ -39,9 +38,9 @@ const ResultsPageContent = () => {
             )
           );
         })}
-      </ul>
-      <Button onClick={handleTryClick}>Try one more time</Button>
-    </div>
+      </QuestionAnswers>
+      <StyledButton onClick={handleTryClick}>Try one more time</StyledButton>
+    </ResultPage>
   );
 };
 

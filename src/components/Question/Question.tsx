@@ -2,10 +2,18 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ChevronIcon } from '@/assets/ChevronIcon';
 import logo_black from '@/assets/logo_black.svg';
 import logo_white from '@/assets/logo_white.svg';
 import Button from '@/components/Button';
+import {
+  Answers,
+  BackIcon,
+  Container,
+  Header,
+  Info,
+  QuestionPage,
+  Title,
+} from '@/components/Question/styles';
 import { surveyConfig } from '@/config/surveyConfig';
 import { clearAnswer, saveAnswer } from '@/redux/slices/surveySlice';
 import { RootState } from '@/redux/store';
@@ -15,7 +23,6 @@ import { SURVEY_PATH, SURVEY_RESULTS } from '@/utils/consts';
 import { getNextQuestionId } from '@/utils/getNextQuestionId';
 import { getQuestionFieldOrId } from '@/utils/getQuestionFieldOrId';
 import { replacePlaceholders } from '@/utils/replacePlaceholders';
-import styles from './Question.module.css';
 
 interface QuestionProps {
   question: QuestionType;
@@ -32,8 +39,6 @@ const Question: FC<QuestionProps> = ({ question }) => {
   const isFirstQuestion = surveyConfig[0].id === id;
 
   const logo = hasSpecificDesign ? logo_white : logo_black;
-  const questionTitleClass = `${styles.question_title} ${info && styles.question_title_center}`;
-  const questionPageClass = `${styles.question_page} ${hasSpecificDesign && styles.question_page_specific}`;
 
   const handleAnswer = (answer: Answer) => {
     dispatch(saveAnswer({ question, answer: answer.text }));
@@ -53,23 +58,23 @@ const Question: FC<QuestionProps> = ({ question }) => {
   };
 
   return (
-    <div className={questionPageClass}>
-      <div className={styles.question_header}>
-        {!isFirstQuestion && <ChevronIcon className={styles.back_button} onClick={handleBack} alt="chevron" />}
+    <QuestionPage specific={hasSpecificDesign}>
+      <Header>
+        {!isFirstQuestion && <BackIcon onClick={handleBack} alt="chevron" />}
         <Image src={logo} alt="icon" />
-      </div>
-      <div className={styles.question_container}>
-        <h1 className={questionTitleClass}>{replacePlaceholders(questionText, surveyAnswers['gender'])}</h1>
-        {info && <h2 className={styles.question_info}>{info}</h2>}
-        <div className={styles.question_answers}>
+      </Header>
+      <Container>
+        <Title centered={!!info}>{replacePlaceholders(questionText, surveyAnswers['gender'])}</Title>
+        {info && <Info specific={hasSpecificDesign}>{info}</Info>}
+        <Answers>
           {answers.map((answer) => (
             <Button specific={hasSpecificDesign} key={answer.text} onClick={() => handleAnswer(answer)}>
               {answer.text}
             </Button>
           ))}
-        </div>
-      </div>
-    </div>
+        </Answers>
+      </Container>
+    </QuestionPage>
   );
 };
 
