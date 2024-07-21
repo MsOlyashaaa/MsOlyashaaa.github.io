@@ -1,23 +1,22 @@
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { surveyConfig } from '@/config/surveyConfig';
+import { surveyConfig } from '@/config/surveyConfig.mjs';
 import { QuestionAnswers, ResultPage, StyledButton, Title } from '@/content/resultsPage/styles';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { selectAllAnswers } from '@/redux/selectors';
 import { clearAllAnswers } from '@/redux/slices/surveySlice';
-import { RootState } from '@/redux/store';
-import { SURVEY_PATH } from '@/utils/consts';
+import { SURVEY_PATH } from '@/utils/consts.mjs';
 import { findQuestion } from '@/utils/getQuestionByIdOrFiled';
 import { replacePlaceholders } from '@/utils/replacePlaceholders';
 
 const ResultsPageContent = () => {
-  const dispatch = useDispatch();
-  const surveyAnswers = useSelector((state: RootState) => state.survey.answers);
-
+  const dispatch = useAppDispatch();
+  const surveyAnswers = useAppSelector(selectAllAnswers);
   const router = useRouter();
   const path = surveyConfig[0];
 
   const handleTryClick = () => {
     dispatch(clearAllAnswers());
-    router.replace(`${SURVEY_PATH}/${path.id}`);
+    router.replace(`${SURVEY_PATH}/${path.slug}`);
   };
 
   return (

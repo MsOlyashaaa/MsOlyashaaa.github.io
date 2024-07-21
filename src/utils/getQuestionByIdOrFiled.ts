@@ -1,4 +1,4 @@
-import { surveyConfig } from '@/config/surveyConfig';
+import { surveyConfig } from '@/config/surveyConfig.mjs';
 import { Question } from '@/types/Question';
 
 export const findQuestion = (searchField: string): Question => <Question>(

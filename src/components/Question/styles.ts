@@ -45,12 +45,12 @@ export const Container = styled.div`
   box-sizing: border-box;
 `;
 
-export const Title = styled.h1<{ centered?: boolean }>`
+export const Title = styled.h1<{ $centered: boolean }>`
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
   margin-bottom: 30px;
-  text-align: ${({ centered }) => (centered ? 'center' : 'left')};
+  text-align: ${({ $centered }) => ($centered ? 'center' : 'left')};
 `;
 
 export const Info = styled.h2<{ specific?: boolean }>`
