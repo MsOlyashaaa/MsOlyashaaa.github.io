@@ -2,6 +2,7 @@ import { Answer } from '@/types/Answer';
 
 export interface Question {
   id: string;
+  slug: string;
   question: string;
   field?: string;
   info?: string;
