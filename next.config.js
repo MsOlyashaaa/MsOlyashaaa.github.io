@@ -1,4 +1,3 @@
-import withPlugins from 'next-compose-plugins';
 import { surveyConfig } from './src/config/surveyConfig.mjs';
 import { SURVEY_PATH } from './src/utils/consts.mjs';
 
@@ -16,4 +15,4 @@ const nextConfig = {
   },
 };
 
-export default withPlugins([], nextConfig);
+export default nextConfig;
