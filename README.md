@@ -1,6 +1,3 @@
-# Results
-
-Open [https://msolyashaaa.github.io/](https://msolyashaaa.github.io/) with your browser to see the result.
 
 # Getting Started
 
