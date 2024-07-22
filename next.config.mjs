@@ -9,7 +9,7 @@ const nextConfig = {
       {
         source: '/',
         destination: `${SURVEY_PATH}/${surveyConfig[0].slug}`,
-        permanent: true,
+        permanent: false,
       },
     ];
   },

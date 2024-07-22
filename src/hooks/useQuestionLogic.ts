@@ -51,7 +51,7 @@ const useQuestionLogic = ({ question }: UseQuestionLogicProps) => {
     if (Object.keys(surveyAnswers).length == 0) {
       router.push(`${SURVEY_PATH}/${surveyConfig[0].slug}`);
     }
-  }, [router, surveyAnswers]);
+  }, [surveyAnswers]);
 
 
   return {
