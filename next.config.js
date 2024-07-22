@@ -1,13 +1,10 @@
-import withPlugins from "next-compose-plugins";
-import { surveyConfig } from "./src/config/surveyConfig.mjs";
-import { SURVEY_PATH } from "./src/utils/consts.mjs";
+import withPlugins from 'next-compose-plugins';
+import { surveyConfig } from './src/config/surveyConfig.mjs';
+import { SURVEY_PATH } from './src/utils/consts.mjs';
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-};
-
-const redirects = {
   async redirects() {
     return [
       {
@@ -19,4 +16,4 @@ const redirects = {
   },
 };
 
-export default withPlugins([redirects], nextConfig);
+export default withPlugins([], nextConfig);
