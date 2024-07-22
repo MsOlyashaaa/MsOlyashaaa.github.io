@@ -9,8 +9,9 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: `${SURVEY_PATH}/${surveyConfig[0].slug}`,
-        permanent: true,
+        destination: `https://msolyashaaa.github.io${SURVEY_PATH}/${surveyConfig[0].slug}`,
+        basePath: false,
+        permanent: false,
       },
     ];
   },
