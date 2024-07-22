@@ -7,9 +7,9 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: 'https://msolyashaaa.github.io/',
+        source: '/',
         destination: `${SURVEY_PATH}/${surveyConfig[0].slug}`,
-        permanent: false,
+        permanent: true,
       },
     ];
   },
