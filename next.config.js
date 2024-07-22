@@ -1,27 +1,19 @@
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-
-let assetPrefix = '';
-let basePath = '';
-
-if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
-  assetPrefix = `/${repo}/`;
-  basePath = `/${repo}`;
-}
+import { surveyConfig } from './src/config/surveyConfig.mjs';
+import { SURVEY_PATH } from './src/utils/consts.mjs';
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  trailingSlash: true,
   async redirects() {
     return [
       {
         source: '/',
-        destination: `${basePath}/survey/select-your-gender`,
+        destination: `${SURVEY_PATH}/${surveyConfig[0].slug}`,
         permanent: true,
       },
     ];
   },
 };
 
+export default nextConfig;
