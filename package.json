@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "homepage": "https://msolyashaaa.github.io/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && next export && gh-pages -d out"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
