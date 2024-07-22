@@ -4,13 +4,12 @@ import { SURVEY_PATH } from './src/utils/consts.mjs';
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  redirects() {
+  async redirects() {
     return [
       {
         source: '/',
         destination: `${SURVEY_PATH}/${surveyConfig[0].slug}`,
-        basePath: false,
-        permanent: false,
+        permanent: true,
       },
     ];
   },
